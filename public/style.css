@@ -1,0 +1,27 @@
+body {
+  font-family: 'Times New Roman', Times, serif, sans-serif;
+  margin: 20px;
+  background-color: #fafafa;
+}
+
+header,
+footer {
+  text-align: center;
+}
+
+nav a {
+  color: #007acc;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+nav a.active {
+  font-weight: bold;
+  color: #004a8f;
+}
+
+main {
+  max-width: 60ch;
+  margin: 0 auto;
+  padding: 1rem;
+}

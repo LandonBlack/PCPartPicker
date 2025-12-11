@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title><%= pageTitle %></title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1><%= pageTitle %></h1>
+
+  <ul>
+    <% parts.forEach(function(part) { %>
+      <li>
+        <input type="checkbox" class="part-checkbox" data-part="<%= part %>">
+        <%= part %>
+      </li>
+    <% }) %>
+  </ul>
+
+  <p><a href="/">Back to Home</a></p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const checkboxes = document.querySelectorAll('.part-checkbox');
+
+      checkboxes.forEach(cb => {
+        // Load saved state from localStorage
+        if (localStorage.getItem(cb.dataset.part) === 'true') {
+          cb.checked = true;
+        }
+
+        // Save state when user checks/unchecks
+        cb.addEventListener('change', () => {
+          localStorage.setItem(cb.dataset.part, cb.checked);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
